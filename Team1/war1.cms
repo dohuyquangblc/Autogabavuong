@@ -89,11 +89,10 @@ LCLICK(290,110)  // 11003902
 
 
 
-
 if(pxl(150,40) = 16646143)
  logwrite("tao phong")	        
 LCLICK(337,265)  // 528414
-waitms(1000)
+waitms(3000)
 end_if  
 
 
