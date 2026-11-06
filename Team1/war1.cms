@@ -1,0 +1,214 @@
+﻿#name("warclone2") 
+#autorun    
+Getscreen
+$tk = TFREAD("taikhoan\\taikhoan.txt",2)
+$wnd1 = wndfind($tk)
+$x = 486
+$y = 0
+$d=500
+$r=350
+WNDSETINFO($wnd1,$x,$y,$d,$r) 
+$vk = TFREAD("ht\\gocvk.txt",1)
+$reg = TFREAD("ht\\checkrg.txt",1)
+$Guild = TFREAD("ht\\Guild.txt",1)
+$Clone = TFREAD("ht\\soluongclone.txt",1)
+$nhatky = STRCONCAT($tk," Win:  ", $Win , " lose:  ", $lose)
+hsettext($wnd1,$nhatky)
+hset($wnd1,1)
+waitms(10)
+LCLICK(1,1)
+
+//----------------------relog 500x350-------------------------------
+//-----------Auo relog----------------
+
+
+THREAD(relog, 1)
+$Lmh = $Lmh + 1    
+//LOGWRITE("time relog: ", $Lmh)
+waitms(1000)  
+END_THREAD
+
+
+//thoi gian relog bao nhieu phut
+$time = TFREAD("ht\\time.txt",1)
+$time2 = $time*60
+
+if($Lmh >= $time2)
+   POSTMESSAGE($wnd1,0x0010,0,0)
+   print("loi mkn sau ... phut" )
+																		
+$Lmh = 0
+$re=$re+1
+   wait(3)
+   end_if
+   
+ //-----------Auo relog----------------
+
+   //loi mat ket noi
+if_pixel_in(178,151,178,151,10538208)
+$loimkn = $loimkn + 1
+print("loi mat ket noi " $loimkn)
+waitms(1000)   
+if($loimkn  >= 10)
+   POSTMESSAGE($wnd1,0x0010,0,0)
+   wait(3)
+    $loimkn = 0
+print("loi mat ket noi")
+$re=$re+1
+end_if
+end_if	  
+
+//$x1 = 478
+//$x2 = 265
+
+//$x3 = PXL($x1, $x2)
+//LOGWRITE(STRCONCAT("if(pxl(", $x1, ",", $x2, ") = ", $x3, ")"))
+
+
+getscreen 
+if(pxl(369,103) = 15266276)
+logwrite("tat thong bao")	
+LCLICK(362,76)  // 5323556
+waitms(800)
+end_if  
+
+if_pixel_in(371,218,371,218,12578559)  
+logwrite("tat goi y")	
+LCLICK(458,190)  // 14737618
+waitms(800)
+end_if 
+
+
+
+   if(pxl(27,228) = 10744057)
+      logwrite("vao phong game")
+LCLICK(290,110)  // 11003902
+      waitms(1000)
+	  $da_go = 0
+   end_if    
+
+
+
+
+if(pxl(150,40) = 16646143)
+ logwrite("tao phong")	        
+LCLICK(337,265)  // 528414
+waitms(1000)
+end_if  
+
+
+
+
+GETSCREEN
+ if(pxl(454,296) = 15203583)   // Trong phòng game
+
+   // 1. Chỉ gõ aim 1 lần đầu
+   IF($da_go = 0)
+      LOGWRITE("Dang go aim...")
+      WAITMS(2000)        
+      KEYPRESS(13) // Enter mở chat
+      WAITMS(300)
+      
+      KEYSTRING("aim55_5")
+      
+      WAITMS(300)
+      KEYPRESS(13) // Enter gửi
+      WAITMS(800)
+      
+      $da_go = 1
+   END_IF
+
+   // 2. Xử lý phòng game
+   IF($clone = 1)
+      GETSCREEN
+      
+      // BƯỚC 2A: Nếu ô còn TRỐNG -> Tiến hành mời clone
+      IF(PXL(159,98) = 11153494) 
+         IF($Guild = 2)                                
+            $m = 223
+         ELSE
+            $m = 254
+         END_IF
+         
+         WAITMS(1000)
+         LCLICK(149,69)  // khóa ô
+         WAITMS(1000)
+         LCLICK(149,69)  // mở ô
+
+         WAITMS(1000)
+         LCLICK(382,256)  // mời bạn
+         WAITMS(1000)
+
+         LCLICK($m,90) // bạn bè
+         WAITMS(1000)
+
+         LCLICK(277,106)  // click mời clone
+         WAITMS(1000)
+         LCLICK(299,72)
+         WAITMS(1000)
+         KEYPRESS(#ESC)
+         WAITMS(1000)
+      END_IF
+
+      // BƯỚC 2B: Kiểm tra nếu clone ĐÃ VÀO PHÒNG (màu khác màu ô trống) -> Bấm bắt đầu
+      GETSCREEN
+      IF(PXL(159,98) != 11153494) 
+         LOGWRITE("batdau vs clone2")
+         LCLICK(455,253)  // Bắt đầu
+         WAITMS(1000)
+         $turn = 0
+      END_IF
+
+   ELSE
+      // Trường hợp đánh 1 mình ($clone = 0)
+      LOGWRITE("batdau 1 minh")
+      LCLICK(455,253)  // Bắt đầu
+      WAITMS(1000)
+      $turn = 0
+   END_IF
+
+END_IF
+
+
+
+if(pxl(478,265) = 1856766)
+logwrite("bat auto")
+LCLICK(243,8)  // 13941150 // bat auto dame
+waitms(500)
+end_if 
+
+ if(pxl(478,265) = 1856766)
+logwrite("mo buff")
+LCLICK(470,234)  // 3029852
+waitms(500)
+end_if 
+
+
+
+
+GETSCREEN
+
+if_pixel_in(176,145,176,145,16121340 )
+      LOGWRITE("nhan turn")
+      WAITMS(500)
+      #include "ht\buff.txt"
+      WAITMS(2000)
+END_IF   
+
+
+  //---------------win---------------------
+   if_pixel_in(453,67,453,67,7722495)
+ $win = $win + 1
+$Lmh = 0
+
+waitms(6000)
+end_if
+
+
+//---------------Lose---------------------
+if_pixel_in(453,67,453,67,16316664)
+ $lose = $lose + 1
+$Lmh = 0
+
+waitms(6000)
+end_if
