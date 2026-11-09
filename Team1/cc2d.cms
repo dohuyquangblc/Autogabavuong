@@ -7,7 +7,7 @@ team(1,1,2)
 
 moiban()
 
-batdau("")
+batdau("aim35_5")
 
 chonpb(4,2,1,1)
 
@@ -15,4 +15,44 @@ chonpb(4,2,1,1)
 latthe(1,21)
 
 
-dame()
+//dame()
+
+if(pxl(234,40) = 255)
+logwrite("bat auto")
+LCLICK(240,7)   // bat auto dame
+waitms(500)
+end_if 
+
+if(pxl(478,265) = 1856766)
+logwrite("gom buff")
+LCLICK(470,233)   // thu buff
+waitms(500)
+end_if   
+
+ 
+    Getscreen  
+  if  ($vitri=0)   
+if_pixel_in(239,114,239,114,16121087) // nhan turn pass
+ #includer("ht\\buff.txt")
+   //neu thay diem nay thi dung lai
+ if_pixel_in(327,177,488,316,155)
+            logwrite("stop"$vitri)
+			
+			
+            
+            waitms(200)						            
+            keyup(186)          
+            waitms(1000)
+ 
+        
+            
+             
+         else
+         
+            keydown(186)// bo phai
+            
+            
+end_if
+end_if
+end_if
+ 
