@@ -7,7 +7,7 @@ team(1,1,2)
 
 moiban()
 
-batdau("aim25_5_50")
+batdau("aim35_5_40")
 
 chonpb(4,2,1,1)
 
@@ -35,7 +35,7 @@ end_if
 if_pixel_in(239,114,239,114,16121087) // nhan turn pass
  #includer("ht\\buff.txt")
    //neu thay diem nay thi dung lai
- if_pixel_in(327,177,488,316,5072543,3745854,3614524,4636927,5651287)
+ if_pixel_in(327,177,488,316,155)
             logwrite("stop"$vitri)
 			
 			
