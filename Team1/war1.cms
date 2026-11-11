@@ -170,11 +170,11 @@ END_IF
 
 
 
-if(pxl(478,265) = 1856766)
+if_pixel_in(234,37,234,37,255) 
 logwrite("bat auto")
 LCLICK(243,8)  // 13941150 // bat auto dame
 waitms(500)
-end_if 
+end_if  
 
  if(pxl(478,265) = 1856766)
 logwrite("mo buff")
