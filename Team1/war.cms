@@ -109,7 +109,7 @@ GETSCREEN
       KEYPRESS(13) // Enter mở chat
       WAITMS(300)
       
-      KEYSTRING("aim55_5")
+      KEYSTRING("aim65_5")
       
       WAITMS(300)
       KEYPRESS(13) // Enter gửi
