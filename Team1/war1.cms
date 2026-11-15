@@ -58,8 +58,24 @@ $re=$re+1
 end_if
 end_if	  
 
-//$x1 = 478
-//$x2 = 265
+
+   //war relog
+if(pxl(488,37) = 4145092)
+$warrelog = $warrelog + 1
+print("War relog " $warrelog)
+waitms(1000)   
+if($warrelog  >= 2)
+   POSTMESSAGE($wnd1,0x0010,0,0)
+   wait(3)
+    $warrelog = 0
+print("chay War relog")
+//$re=$re+1
+end_if
+end_if	  
+
+
+//$x1 = 488
+//$x2 = 37
 
 //$x3 = PXL($x1, $x2)
 //LOGWRITE(STRCONCAT("if(pxl(", $x1, ",", $x2, ") = ", $x3, ")"))
@@ -101,21 +117,21 @@ end_if
 GETSCREEN
  if(pxl(454,296) = 15203583)   // Trong phòng game
 
-   // 1. Chỉ gõ aim 1 lần đầu
-   IF($da_go = 0)
-      LOGWRITE("Dang go aim...")
-      WAITMS(2000)        
-      KEYPRESS(13) // Enter mở chat
-      WAITMS(300)
-      
-      KEYSTRING("aim65_5")
-      
-      WAITMS(300)
-      KEYPRESS(13) // Enter gửi
-      WAITMS(800)
-      
-      $da_go = 1
-   END_IF
+//   // 1. Chỉ gõ aim 1 lần đầu
+//   IF($da_go = 0)
+//      LOGWRITE("Dang go aim...")
+//      WAITMS(2000)        
+//      KEYPRESS(13) // Enter mở chat
+//      WAITMS(300)
+//      
+//      KEYSTRING("aim65_5")
+//      
+//      WAITMS(300)
+//      KEYPRESS(13) // Enter gửi
+//      WAITMS(800)
+//      
+//      $da_go = 1
+//   END_IF
 
    // 2. Xử lý phòng game
    IF($clone = 1)
