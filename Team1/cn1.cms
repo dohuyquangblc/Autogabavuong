@@ -1,0 +1,50 @@
+﻿#name("thu1")
+#autorun
+getscreen
+$tk = TFREAD("taikhoan\\taikhoan.txt",1)
+$ten = TFREAD("taikhoan\\tenthu.txt",1)
+$thu = TFREAD("ht\\thu.txt",1)
+$ingame = $ten
+$wnd1 = wndfind($tk)
+$x=0
+$y=0
+$d=500
+$r=350
+WNDSETINFO($wnd1,$x,$y,$d,$r) 
+hset($wnd1,1)
+//waitms(30)
+LCLICK(1,1)
+
+
+
+
+//if(pxl(321,248) = 14345958)
+//print(" tich mo lien tuc")
+//LCLICK(312,218)  // 1849948
+//waitms(1000)
+//end_if
+
+
+if(pxl(264,241) = 3427523)
+print(" mo lu")
+LCLICK(251,216)  // 1060441
+waitms(10)
+LCLICK(54,58)  // 40147
+waitms(10)
+LCLICK(80,58)  // 12578559
+end_if
+
+
+
+if(pxl(264,241) = 7171437)
+print(" mo lu lien tuc")  
+LCLICK(55,58)  // 7049642
+LCLICK(80,56)  // 12578559
+LCLICK(102,58)  // 601948
+LCLICK(125,58)  // 931168
+LCLICK(148,57)  // 865888
+waitms(50)
+end_if
+
+
+
